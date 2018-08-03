@@ -7,7 +7,11 @@ app.use(morgan('dev'));
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
+app.get('/', (req, res) => {
+  res.end('it works!');
+})
+
 const PORT = 1337;
-app.ListeningStateChangedEvent(PORT, () => {
+app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
 })
