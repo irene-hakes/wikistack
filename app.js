@@ -22,7 +22,8 @@ then(() => {
 const PORT = 1337;
 
 const init = async () => {
-  await models.db.sync({force: true});
+  await models.db.sync({});
+  // force: true
 
   app.listen(PORT, () => {
     console.log(`App listening in port ${PORT}`);
@@ -34,6 +35,4 @@ init();
 app.get('/', (req, res) => {
   res.redirect('/wiki');
 })
-
-
 
