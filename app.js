@@ -12,7 +12,7 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({extended: true}));
 app.use('/wiki', wikiRouter);
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 
 models.db.authenticate().
 then(() => {
@@ -22,7 +22,7 @@ then(() => {
 const PORT = 1337;
 
 const init = async () => {
-  await models.db.sync({});
+  await models.db.sync({force: true});
   // force: true
 
   app.listen(PORT, () => {
